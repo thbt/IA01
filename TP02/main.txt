@@ -1,0 +1,567 @@
+#include <stdio.h>
+#include "tp3.h"
+
+
+
+
+
+
+int main(int argc, const char * argv[]) {
+    
+/*    //          TESTS DES FONCTIONS
+ 
+    T_Biblio* maBiblio = creerBiblio("Ma bibliothèque");
+    
+    T_Rayon* rayon_1 = creerRayon("theme1");
+    T_Rayon* rayon_2 = creerRayon("theme2");
+    T_Rayon* rayon_3 = creerRayon("theme3");
+    T_Rayon* rayon_4 = creerRayon("theme4");
+    T_Rayon* rayon_5 = creerRayon("theme5");
+    T_Rayon* rayon_6 = creerRayon("theme6");
+
+    T_Livre* livre_1 = creerLivre("abcd", "auteur", "edition");
+    T_Livre* livre_2 = creerLivre("acbd", "auteur", "edition");
+    T_Livre* livre_3 = creerLivre("adbc", "auteur", "edition");
+    T_Livre* livre_4 = creerLivre("aefg", "auteur", "edition");
+    T_Livre* livre_5 = creerLivre("oooo", "auteur", "edition");
+    T_Livre* livre_6 = creerLivre("pppp", "auteur", "edition");
+    T_Livre* livre_7 = creerLivre("zzzz", "auteur", "edition");
+    
+    T_Livre* livre_8 = creerLivre("abcd", "auteur", "edition");
+    T_Livre* livre_9 = creerLivre("acbd", "auteur", "edition");
+    T_Livre* livre_10 = creerLivre("adbc", "auteur", "edition");
+    T_Livre* livre_11 = creerLivre("aefg", "auteur", "edition");
+    T_Livre* livre_12 = creerLivre("oooo", "auteur", "edition");
+    T_Livre* livre_13 = creerLivre("pppp", "auteur", "edition");
+    T_Livre* livre_14 = creerLivre("zzzz", "auteur", "edition");
+    
+    
+    
+   
+    // ========  Ajout des rayons  ==============
+    
+    if (ajouterRayon(maBiblio, rayon_1))
+        printf("Ajout rayon_1 OK\n");
+    else
+        printf("Ajout rayon_1 erreur\n");
+
+    if (ajouterRayon(maBiblio, rayon_2))
+        printf("Ajout rayon_2 OK\n");
+    else
+        printf("Ajout rayon_2 erreur\n");
+    
+    if (ajouterRayon(maBiblio, rayon_3))
+        printf("Ajout rayon_3 OK\n");
+    else
+        printf("Ajout rayon_3 erreur\n");
+    
+    if (ajouterRayon(maBiblio, rayon_4))
+        printf("Ajout rayon_4 OK\n");
+    else
+        printf("Ajout rayon_4 erreur\n");
+    
+    if (ajouterRayon(maBiblio, rayon_6))
+        printf("Ajout rayon_6 OK\n");
+    else
+        printf("Ajout rayon_6 erreur\n");
+    
+    
+    if (ajouterRayon(maBiblio, rayon_5))
+        printf("Ajout rayon_5 OK\n");
+    else
+        printf("Ajout rayon_5 erreur\n");
+    
+    
+    
+    // ========  Ajout des livres  ==============
+    if (ajouterLivre(rayon_1, livre_1))
+        printf("Ajout livre_1 OK\n");
+    else
+        printf("Ajout livre_1 erreur\n");
+    
+    
+    if (ajouterLivre(rayon_1, livre_4))
+        printf("Ajout livre_4 OK\n");
+    else
+        printf("Ajout livre_4 erreur\n");
+    
+    
+    if (ajouterLivre(rayon_1, livre_2))
+        printf("Ajout livre_2 OK\n");
+    else
+        printf("Ajout livre_2 erreur\n");
+    
+    
+    if (ajouterLivre(rayon_1, livre_3))
+        printf("Ajout livre_3 OK\n");
+    else
+        printf("Ajout livre_3 erreur\n");
+    
+    
+    if (ajouterLivre(rayon_1, livre_1))
+        printf("Ajout livre_1 OK\n");
+    else
+        printf("Ajout livre_1 erreur\n");
+    
+    if (ajouterLivre(rayon_1, livre_5))
+        printf("Ajout livre_5 OK\n");
+    else
+        printf("Ajout livre_5 erreur\n");
+    
+    if (ajouterLivre(rayon_1, livre_6))
+        printf("Ajout livre_6 OK\n");
+    else
+        printf("Ajout livre_6 erreur\n");
+    
+    if (ajouterLivre(rayon_1, livre_7))
+        printf("Ajout livre_7 OK\n");
+    else
+        printf("Ajout livre_7 erreur\n");
+    
+    ajouterLivre(rayon_2, livre_8);
+    ajouterLivre(rayon_4, livre_9);
+    ajouterLivre(rayon_4, livre_10);
+    ajouterLivre(rayon_2, livre_11);
+    ajouterLivre(rayon_2, livre_12);
+    ajouterLivre(rayon_2, livre_13);
+    ajouterLivre(rayon_2, livre_14);
+    
+    
+    
+    // ========  Test des affichages  ==============
+    
+    printf("\n\n\n\nAffichages : \n\n");
+    
+    printf("\nAffichage de la bibliothèque : \n");
+    afficherBiblio(maBiblio);
+    
+    
+    printf("\nAffichage du rayon rayon_1 : \n");
+    afficheRayon(rayon_1);
+
+
+    
+    
+    
+    // ========  Test emprunt livre  ==============
+    
+    printf("\n\n\nTest emprunt d'un livre : \n");
+    if (emprunterLivre(rayon_1, "abcd"))
+        printf("Emprunt abcd dans rayon 1 possible -> livre emprunté.\n");
+    else
+        printf("Emprunt abcd dans rayon 1 impossible.\n");
+    
+    if (emprunterLivre(rayon_1, "abcd"))
+        printf("Emprunt abcd dans rayon 1 possible -> livre emprunté.\n");
+    else
+        printf("Emprunt abcd dans rayon 1 impossible.\n");
+    
+    
+    if (emprunterLivre(rayon_1, "deuzdeiuz"))
+        printf("Emprunt deuzdeiuz dans rayon 1 possible -> livre emprunté.\n");
+    else
+        printf("Emprunt deuzdeiuz dans rayon 1 impossible.\n");
+    
+ 
+    
+    
+    
+    // ========  Test suppression d'un livre  ==============
+    printf("\n\n\nTest suppression d'un livre dans rayon 1 : \n\n");
+    printf("Affichage du rayon 1 : \n");
+    afficheRayon(rayon_1);
+    printf("\n");
+    
+    if (supprimerLivre(rayon_1, "abdezdez")){
+        printf("\nLivre abdezdez supprimé.\n");
+        printf("Voici le rayon une fois le livre supprimé:\n");
+        afficheRayon(rayon_1);
+    }
+    else
+        printf("\nLivre abdezdez non supprimé.\n");
+    
+    // on supprime un livre qui existe au début
+    if (supprimerLivre(rayon_1, "abcd")) {
+        printf("\nLivre abcd supprimé.\n");
+        printf("Voici le rayon une fois le livre supprimé:\n");
+        afficheRayon(rayon_1);
+    }
+    else
+        printf("\nLivre abcd non supprimé.\n");
+    
+    // on reessaye de supprimer le livre que l'on vient de supprimer
+    if (supprimerLivre(rayon_1, "abcd")) {
+        printf("\nLivre abcd supprimé.\n");
+        printf("Voici le rayon une fois le livre supprimé:\n");
+        afficheRayon(rayon_1);
+    }
+    else
+        printf("\nLivre abcd non supprimé.\n");
+    
+    // on supprime un livre en milieu de rayon
+    if (supprimerLivre(rayon_1, "adbc")) {
+        printf("\nLivre adbc supprimé.\n");
+        printf("Voici le rayon une fois le livre supprimé:\n");
+        afficheRayon(rayon_1);
+    }
+    else
+        printf("\nLivre adbc non supprimé.\n");
+    
+    
+    // on supprime un livre en fin de rayon
+    if (supprimerLivre(rayon_1, "zzzz")) {
+        printf("\nLivre zzzz supprimé.\n");
+        printf("Voici le rayon une fois le livre supprimé:\n");
+        afficheRayon(rayon_1);
+    }
+    else
+        printf("\nLivre zzzz non supprimé.\n");
+ 
+    
+    // ========  Test suppression d'un rayon et de tous ses livres  ==============
+    // supprimer un rayon qui n'existe pas
+    if (supprimerRayon(maBiblio, "rayon non existant")) {
+        printf("\nRayon rayon non existant supprimé.\n");
+        printf("Voici la biblio une fois le rayon supprimé:\n");
+        afficherBiblio(maBiblio);
+    }
+    else
+        printf("\nRayon rayon non existant non supprimé.\n");
+    
+    // supprimer un rayon en début de liste et qui contient des livres
+    if (supprimerRayon(maBiblio, "theme1")) {
+        printf("\nRayon theme1 supprimé.\n");
+        printf("Voici la biblio une fois le rayon supprimé:\n");
+        afficherBiblio(maBiblio);
+    }
+    else
+        printf("\nRayon theme1 non supprimé.\n");
+    
+    
+    // supprimer un rayon en milieu de liste et qui ne contient pas de livres
+    if (supprimerRayon(maBiblio, "theme5")) {
+        printf("\nRayon theme5 supprimé.\n");
+        printf("Voici la biblio une fois le rayon supprimé:\n");
+        afficherBiblio(maBiblio);
+    }
+    else
+        printf("\nRayon theme5 non supprimé.\n");
+
+    
+    // supprimer un rayon en fin de liste et qui ne contient pas de livres
+    if (supprimerRayon(maBiblio, "theme6")) {
+        printf("\nRayon theme6 supprimé.\n");
+        printf("Voici la biblio une fois le rayon supprimé:\n");
+        afficherBiblio(maBiblio);
+    }
+    else
+        printf("\nRayon theme6 non supprimé.\n");
+    
+
+    
+    // ========  Test de recherche avec un critère de recherche  ==============
+    
+    printf("\nAffichage du rayon rayon_2 : \n");
+    afficheRayon(rayon_2);
+    
+    
+    char recherche [100];
+    printf("\n\n\nVeuillez entrer votre critère de recherche : ");
+    scanf("%s", recherche);
+    rechercherLivres(maBiblio, recherche);
+    
+*/
+  
+    
+    
+    
+    
+    // ========================================================================
+    // ================================  MENU  ================================
+    // ========================================================================
+    
+    
+    
+    
+    T_Biblio* uneBiblio = creerBiblio("");
+    int biblioCree = 0;
+    int choix, ch;
+    
+    while ((choix = afficherMenu()) != 9) { // tant que l'utilisateur veut continuer à utiliser l'application
+        
+        
+        // ================================  CHOIX 1  ================================
+        if (choix == 1) {
+            
+            if (!biblioCree) {
+                char nomTmp[500];
+                printf("Veuillez entrer le nom de votre bibliothèque : \n");
+                scanf(" %[^\n]s", nomTmp); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                uneBiblio = creerBiblio(nomTmp);
+                printf("Votre bibliothèque \"%s\" a bien été créée. Que voulez vous faire maintenant ?", uneBiblio->nom);
+                biblioCree = 1;
+            }
+            else {
+                char reponse;
+                printf("Vous allez détruire votre bibliothèque \"%s\". Voulez-vous continuer (y/n) ? : \n", uneBiblio->nom);
+                while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                reponse = getchar();
+                while (reponse != 'n' && reponse != 'N' && reponse != 'y' && reponse != 'Y') {
+                    printf("Mauvaise saisie, veuillez recommencer (y/n) : \n");
+                    while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                    reponse = getchar();
+                }
+                
+                if (reponse == 'y' || reponse == 'Y') {
+                    char nomTmp[500];
+                    printf("Veuillez entrer le nom de votre nouvelle bibliothèque : \n");
+                    scanf(" %[^\n]s", nomTmp); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                    uneBiblio = creerBiblio(nomTmp);
+                    printf("Votre bibliothèque \"%s\" a bien été créée. Que voulez vous faire maintenant ?", uneBiblio->nom);
+                    biblioCree = 1;
+                }
+                else
+                    printf("On garde la bibliothèque alors !\n");
+            }
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 2  ================================
+        else if (choix == 2) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            else {
+                char nomTmp[500];
+                printf("Veuillez entrer le nom de votre rayon : \n");
+                scanf(" %[^\n]s", nomTmp); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                
+                if (ajouterRayon(uneBiblio, creerRayon(nomTmp)) == 1) // on ne précise que le rayon a été ajouté que si c'est bien le cas
+                    printf("Votre rayon \"%s\" a bien été créée. Que voulez vous faire maintenant ?", nomTmp);
+            }
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 3  ================================
+        else if (choix == 3) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            else if (uneBiblio->premier_rayon == NULL) {
+                printf("Vous devez d'abord créer des rayons\n");
+            }
+            
+            
+            else {
+                int choixRayon, i;
+                char titre[500];
+                char auteur[500];
+                char edition[500];
+                T_Rayon* rayon_tmp;
+                rayon_tmp = uneBiblio->premier_rayon;
+                
+                
+                printf("Veuillez choisir dans quel rayon vous voulez ajouter votre livre (entrez le numéro du rayon) : \n");
+                afficherBiblio(uneBiblio);
+                
+                while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                scanf("%d", &choixRayon);
+                
+                while (choixRayon < 1 || choixRayon > uneBiblio->nombre_rayons) {
+                    printf("Mauvaise saisie, veuillez recommencer : \n");
+                    while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer // permet de vider le buffer
+                    scanf("%d", &choixRayon);
+                }
+            
+                printf("Veuillez entrer le titre de votre livre : \n");
+                scanf(" %[^\n]s", titre); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                printf("Veuillez entrer l'auteur de votre livre : \n");
+                scanf(" %[^\n]s", auteur);
+                printf("Veuillez entrer l'édition de votre livre : \n");
+                scanf(" %[^\n]s", edition);
+                
+                for (i=0; i<choixRayon-1; i++)
+                    rayon_tmp = rayon_tmp->suivant;
+                
+                if ( (ajouterLivre(rayon_tmp, creerLivreAvecRayon(titre, auteur, edition, rayon_tmp->theme_rayon)) ) == 1)
+                    printf("Votre livre \"%s\" a bien été créée. Que voulez vous faire maintenant ?", titre);
+            }
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 4  ================================
+        else if (choix == 4) {
+            afficherBiblio(uneBiblio);
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 5  ================================
+        else if (choix == 5) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            else if (uneBiblio->premier_rayon == NULL) {
+                printf("Vous devez d'abord créer des rayons\n");
+            }
+            
+            
+            else {
+                int choixRayon, i;
+                T_Rayon* rayon_tmp;
+                rayon_tmp = uneBiblio->premier_rayon;
+                
+                
+                printf("Veuillez choisir le rayon vous voulez afficher (entrez le numéro du rayon) : \n");
+                afficherBiblio(uneBiblio);
+                
+                while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                scanf("%d", &choixRayon);
+                while (choixRayon < 1 || choixRayon > uneBiblio->nombre_rayons) {
+                    printf("Mauvaise saisie, veuillez recommencer : \n");
+                    while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                    scanf("%d", &choixRayon);
+                }
+                
+                for (i=0; i<choixRayon-1; i++)
+                    rayon_tmp = rayon_tmp->suivant;
+                
+                afficheRayon(rayon_tmp);
+            }
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 6  ================================
+        else if (choix == 6) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            else if (uneBiblio->premier_rayon == NULL) {
+                printf("Vous devez d'abord créer des rayons\n");
+            }
+            
+            else {
+                int choixRayon, i;
+                char titre[500];
+                T_Rayon* rayon_tmp;
+                rayon_tmp = uneBiblio->premier_rayon;
+                
+                
+                printf("Veuillez choisir le rayon dans lequel vous voulez retirer un livre (entrez le numéro du rayon) : \n");
+                afficherBiblio(uneBiblio);
+                
+                while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                scanf("%d", &choixRayon);
+                while (choixRayon < 1 || choixRayon > uneBiblio->nombre_rayons) {
+                    printf("Mauvaise saisie, veuillez recommencer : \n");
+                    while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                    scanf("%d", &choixRayon);
+                }
+                
+
+                for (i=0; i<choixRayon-1; i++)
+                    rayon_tmp = rayon_tmp->suivant;
+                
+                if (rayon_tmp->nombre_livres == 0)
+                    printf("Rayon vide, impossible de retirer un livre.\n");
+                else {
+                    printf("Veuillez choisir le livre que vous voulez retirer (entrez le titre du livre) : \n");
+                    afficheRayon(rayon_tmp);
+                    scanf(" %[^\n]s", titre); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                    emprunterLivre(rayon_tmp, titre);
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 7  ================================
+        else if (choix == 7) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            else if (uneBiblio->premier_rayon == NULL) {
+                printf("Vous devez d'abord créer des rayons\n");
+            }
+            
+            else {
+                int choixRayon, i;
+                T_Rayon* rayon_tmp;
+                rayon_tmp = uneBiblio->premier_rayon;
+                
+                printf("Veuillez choisir le rayon que vous voulez supprimer (entrez le numéro du rayon) : \n");
+                afficherBiblio(uneBiblio);
+                
+                while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                scanf("%d", &choixRayon);
+                while (choixRayon < 1 || choixRayon > uneBiblio->nombre_rayons) {
+                    printf("Mauvaise saisie, veuillez recommencer : \n");
+                    while ((ch = getchar()) != '\n' && ch != EOF); // permet de vider le buffer
+                    scanf("%d", &choixRayon);
+                }
+                
+                
+                for (i=0; i<choixRayon-1; i++)
+                    rayon_tmp = rayon_tmp->suivant;
+                
+                if ( (supprimerRayon(uneBiblio, rayon_tmp->theme_rayon)) == 1)
+                   printf("Votre rayon a bien été supprimé, ainsi que tous ses livres.\n");
+            }
+            
+        }
+        
+        
+        
+        
+        
+        // ================================  CHOIX 8  ================================
+        else if (choix == 8) {
+            if (!biblioCree) {
+                printf("Vous devez d'abord créer une bibliothèque\n");
+            }
+            
+            else if (uneBiblio->premier_rayon == NULL) {
+                printf("Vous devez d'abord créer des rayons\n");
+            }
+            
+            else {
+                char nomTmp[500];
+                printf("Veuillez entrer le nom du livre à rechercher : \n");
+                scanf(" %[^\n]s", nomTmp); // Permet d'enregistrer dans le scanf tous les caractères, y compris les espaces, jusqu'à que l'utilisateur entre un retour chariot (\n)
+                rechercherLivres(uneBiblio, nomTmp);
+            }
+            
+        }
+        
+        
+        
+        
+        
+        // ================================  ERREUR  ================================
+        else {
+            printf("Une erreur est survenue.\n");
+            return 9;
+        }
+    }
+    
+
+    
+    printf("Merci et au revoir.\n");
+    return 0;
+}
